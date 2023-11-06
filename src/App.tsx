@@ -1,35 +1,31 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { SideBar } from "./layout";
+import {
+  AllNotes,
+  ArchiveNotes,
+  ErrorPage,
+  TagNotes,
+  TrashNotes,
+} from "./pages";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="App">
+      <BrowserRouter>
+        <SideBar />
+        <div className="app__container">
+          <Routes>
+            <Route path="/" element={<AllNotes />} />
+            <Route path="/archive" element={<ArchiveNotes />} />
+            <Route path="/trash" element={<TrashNotes />} />
+            <Route path="/tage/:name" element={<TagNotes />} />
+            <Route path="/404" element={<ErrorPage />} />
+            <Route path="/*" element={<ErrorPage />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </div>
+  );
 }
 
-export default App
+export default App;
