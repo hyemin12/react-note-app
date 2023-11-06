@@ -7,13 +7,21 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: [
-      { find: "@", replacement: path.resolve(__dirname, "src") },
       { find: "@store", replacement: path.resolve(__dirname, "src/store") },
       { find: "@types", replacement: path.resolve(__dirname, "src/types") },
       {
         find: "@styles",
-        replacement: path.resolve(__dirname, "src/assets/styles"),
+        replacement: path.resolve(__dirname, "src/styles"),
       },
+      {
+        find: "@hooks",
+        replacement: path.resolve(__dirname, "src/hooks"),
+      },
+      {
+        find: "@utils",
+        replacement: path.resolve(__dirname, "src/utils"),
+      },
+      { find: "@", replacement: path.resolve(__dirname, "src") },
     ],
   },
 });

@@ -9,7 +9,7 @@ export const StyledNav = styled.div`
   padding: 0 30px;
 
   .nav__menu {
-    display: none;
+    // display: none;
   }
 
   @media screen and (max-width: 950px) {

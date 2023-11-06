@@ -23,10 +23,12 @@
     /* Path */
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
-      "@store": ["src/store/*"],
-      "@types": ["src/types/*"],
-      "@styles": ["src/styles/*"]
+      "@store/*": ["src/store/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@utils/*": ["src/utils/*"],
+      "@types/*": ["src/types/*"],
+      "@styles/*": ["src/styles*"],
+      "@/*": ["src/*"]
     }
   },
   "include": ["src"],

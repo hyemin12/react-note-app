@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { SideBar } from "./layout";
+import { NavBar, SideBar } from "./layout";
 import {
   AllNotes,
   ArchiveNotes,
@@ -14,6 +14,7 @@ function App() {
       <BrowserRouter>
         <SideBar />
         <div className="app__container">
+          <NavBar />
           <Routes>
             <Route path="/" element={<AllNotes />} />
             <Route path="/archive" element={<ArchiveNotes />} />

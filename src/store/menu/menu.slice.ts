@@ -9,7 +9,11 @@ const initialState: MenuState = {
 export const menuSlice = createSlice({
   name: "menu",
   initialState,
-  reducers: {},
+  reducers: {
+    toggleMenu: (state, { payload }) => {
+      state.isOpen = payload;
+    },
+  },
 });
-
+export const { toggleMenu } = menuSlice.actions;
 export default menuSlice.reducer;
