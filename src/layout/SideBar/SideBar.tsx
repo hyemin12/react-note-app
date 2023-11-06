@@ -1,5 +1,4 @@
-import React from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { v4 } from "uuid";
 import { FaTag, FaLightbulb, FaArchive, FaTrash } from "react-icons/fa";
 import { MdEdit } from "react-icons/md";
