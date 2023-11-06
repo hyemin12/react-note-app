@@ -24,11 +24,9 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
-      "@pages": ["src/pages/*"],
-      "@components": ["src/components/*"],
       "@store": ["src/store/*"],
       "@types": ["src/types/*"],
-      "@styles": ["src/assets/styles/*"]
+      "@styles": ["src/styles/*"]
     }
   },
   "include": ["src"],
