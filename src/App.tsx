@@ -7,6 +7,7 @@ import {
   TrashNotes,
 } from "./pages";
 import GenerLayout from "./layout/GeneralLayoyt";
+import "./App.css";
 
 function App() {
   return (

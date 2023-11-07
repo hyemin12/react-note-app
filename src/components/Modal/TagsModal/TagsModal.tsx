@@ -16,7 +16,6 @@ interface TagsModalProps {
 const TagsModal = ({ type }: TagsModalProps) => {
   const dispatch = useAppDispatch();
   const { tagsList } = useAppSelector((state) => state.tags);
-
   const [inputValue, setInputValue] = useState<string>("");
 
   const onToggleTagsModal = () => {

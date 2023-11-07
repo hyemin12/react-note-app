@@ -9,7 +9,7 @@ export const store = configureStore({
   reducer: {
     menu: menuSlice,
     modal: modalSlice,
-    noteList: noteListSlice,
+    notesList: noteListSlice,
     tags: tagsSlice,
   },
 });

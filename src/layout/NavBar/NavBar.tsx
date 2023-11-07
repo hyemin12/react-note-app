@@ -12,7 +12,6 @@ const NavBar = () => {
   const { pathname, state } = useLocation();
   const dispatch = useAppDispatch();
   if (pathname === "/404") return null;
-  console.log(state);
 
   const toggleMenuHandler = () => {
     dispatch(toggleMenu(true));

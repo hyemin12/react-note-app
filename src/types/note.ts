@@ -3,7 +3,7 @@ import { Tag } from "./tag";
 export interface Note {
   title: string;
   content: string;
-  tas: Tag[];
+  tags: Tag[];
   color: string;
   priority: string;
   isPinned: boolean;

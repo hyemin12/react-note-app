@@ -2,11 +2,13 @@ import { Outlet } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { useAppSelector } from "@hooks/redux";
 import { NavBar, SideBar } from ".";
-import { TagsModal } from "@/components";
+import { CreateNoteModal, TagsModal } from "@/components";
 import "react-toastify/dist/ReactToastify.css";
 
 const GenerLayout = () => {
-  const { viewEditTagsModal } = useAppSelector((state) => state.modal);
+  const { viewEditTagsModal, viewCreateNoteModal } = useAppSelector(
+    (state) => state.modal
+  );
 
   return (
     <>
@@ -16,6 +18,7 @@ const GenerLayout = () => {
         pauseOnHover
         autoClose={1500}
       />
+      {viewCreateNoteModal && <CreateNoteModal />}
       {viewEditTagsModal && <TagsModal type={"edit"} />}
       <SideBar />
       <div className="app__container">
