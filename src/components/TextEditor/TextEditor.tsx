@@ -1,4 +1,3 @@
-import React from "react";
 import { Container } from "./TextEditor.styles";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";

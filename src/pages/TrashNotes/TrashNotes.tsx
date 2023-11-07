@@ -1,4 +1,3 @@
-import React from "react";
 import { useAppSelector } from "@hooks/redux";
 import { MainWrapper } from "@/components";
 import { Container, EmptyMsgBox } from "@styles/styles";

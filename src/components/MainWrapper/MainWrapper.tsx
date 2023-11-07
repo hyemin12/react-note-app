@@ -1,5 +1,4 @@
-import React from "react";
-import { Note } from "@types/note";
+import { Note } from "@/types/note";
 import { NoteCard } from "..";
 import { NotesContainer } from "@styles/styles";
 

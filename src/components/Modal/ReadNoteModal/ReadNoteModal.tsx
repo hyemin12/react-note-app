@@ -1,7 +1,7 @@
 import parse from "html-react-parser";
 import { FaTimes } from "react-icons/fa";
 import { useAppDispatch } from "@hooks/redux";
-import { Note } from "@types/note";
+import { Note } from "@/types/note";
 import { readNote } from "@store/note-list/noteList.slice";
 import { DeleteBox, FixedContainer } from "../Modal.styes";
 import { Box } from "./ReadNoteModal.styles";

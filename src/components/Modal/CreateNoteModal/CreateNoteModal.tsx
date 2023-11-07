@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 import { v4 } from "uuid";
 import dayjs from "dayjs";
-import { FaPlus, FaSlack, FaTimes } from "react-icons/fa";
+import { FaPlus, FaTimes } from "react-icons/fa";
 import { useAppDispatch, useAppSelector } from "@hooks/redux";
 import {
   toggleCreateNoteModal,
@@ -10,7 +10,6 @@ import {
 } from "@store/modal/modal.slice";
 import { setEditNote, setMainNotes } from "@store/note-list/noteList.slice";
 import { TagsModal, TextEditor } from "@/components";
-import { Note } from "@types/note";
 import { ButtonFill, ButtonOutline } from "@styles/styles";
 import { DeleteBox, FixedContainer } from "../Modal.styes";
 import {
@@ -20,6 +19,7 @@ import {
   TopBox,
   Box,
 } from "./CreateNoteModal.styles";
+import { Note } from "@types/note";
 
 const CreateNoteModal = () => {
   const dispatch = useAppDispatch();

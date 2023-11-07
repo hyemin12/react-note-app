@@ -1,4 +1,3 @@
-import React from "react";
 import { useLocation } from "react-router-dom";
 import { FiMenu } from "react-icons/fi";
 import { useAppDispatch } from "@hooks/redux";

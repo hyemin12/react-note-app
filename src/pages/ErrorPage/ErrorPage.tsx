@@ -1,4 +1,3 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import ErrorImage from "@/assets/img/HTML-404-Page.png";
 import { Container } from "./ErrorPage.styles";

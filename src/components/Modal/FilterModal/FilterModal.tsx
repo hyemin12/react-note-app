@@ -1,4 +1,3 @@
-import React from "react";
 import { FaTimes } from "react-icons/fa";
 import { DeleteBox, FixedContainer } from "../Modal.styes";
 import { Box, Container, TopBox } from "./FilterModal.styles";

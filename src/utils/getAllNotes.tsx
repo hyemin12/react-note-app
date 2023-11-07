@@ -1,5 +1,5 @@
 import { useAppSelector } from "@hooks/redux";
-import { Note } from "@types/note";
+import { Note } from "@/types/note";
 import { NoteCard } from "@/components";
 import { NotesContainer } from "@styles/styles";
 

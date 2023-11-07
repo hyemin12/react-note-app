@@ -4,7 +4,7 @@ import { useAppDispatch } from "@hooks/redux";
 import getRelevantBtns from "@utils/getRelevantBtns";
 import { readNote, setPinnedNotes } from "@store/note-list/noteList.slice";
 import { ReadNoteModal } from "..";
-import { Note } from "@types/note";
+import { Note } from "@/types/note";
 import { NotesIconBox } from "@styles/styles";
 import {
   Card,

@@ -1,8 +1,7 @@
-import React from "react";
 import { useParams } from "react-router-dom";
 import { useAppSelector } from "@hooks/redux";
 import { MainWrapper } from "@/components";
-import { Note } from "@types/note";
+import { Note } from "@/types/note";
 import { Container, EmptyMsgBox } from "@styles/styles";
 
 const TagNotes = () => {
