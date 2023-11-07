@@ -67,6 +67,12 @@ const CreateNoteModal = () => {
           placeholder="제목..."
           onChange={(e) => setNoteTitle(e.target.value)}
         />
+
+        <TextEditor
+          color={noteColor}
+          noteContent={noteContent}
+          setNoteContent={setNoteContent}
+        />
         <div className="createNote__create-btn">
           <ButtonFill>
             {editNote ? (
