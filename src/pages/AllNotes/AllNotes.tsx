@@ -4,10 +4,12 @@ import { useAppDispatch, useAppSelector } from "@hooks/redux";
 import { toggleFilterModal } from "@store/modal/modal.slice";
 import { ButtonOutline, Container, EmptyMsgBox } from "@styles/styles";
 import getAllNotes from "@utils/getAllNotes";
+import { FilterModal } from "@/components";
 
 const AllNotes = () => {
   const dispatch = useAppDispatch();
   const { mainNotes } = useAppSelector((state) => state.notesList);
+  const { viewFilterModal } = useAppSelector((state) => state.modal);
   const [filter, setFilter] = useState("");
   const [searchInput, setSearchInput] = useState("");
 
@@ -17,11 +19,24 @@ const AllNotes = () => {
   const onToggleFilterModal = () => {
     dispatch(toggleFilterModal(true));
   };
+  const filterHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFilter(e.target.value);
+  };
+  const filterClearHandler = () => {
+    setFilter("");
+  };
 
   return (
     <Container>
       {mainNotes.length > 0 ? (
         <>
+          {viewFilterModal && (
+            <FilterModal
+              filter={filter}
+              filterHandler={filterHandler}
+              filterClearHandler={filterClearHandler}
+            />
+          )}
           <TopBox>
             <InputBox>
               <input

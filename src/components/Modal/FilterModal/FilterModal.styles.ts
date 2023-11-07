@@ -19,7 +19,7 @@ export const Container = styled.div`
 
 export const TopBox = styled.div`
   display: flex;
-  align-items: flex-end;
+  align-items: center;
 
   .filters__title {
     flex-basis: 25%;
