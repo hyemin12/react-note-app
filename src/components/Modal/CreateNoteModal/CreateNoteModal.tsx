@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { toast } from "react-toastify";
 import { v4 } from "uuid";
 import dayjs from "dayjs";
@@ -19,7 +19,7 @@ import {
   TopBox,
   Box,
 } from "./CreateNoteModal.styles";
-import { Note } from "@types/note";
+import { Note } from "@/types/note";
 
 const CreateNoteModal = () => {
   const dispatch = useAppDispatch();

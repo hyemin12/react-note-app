@@ -1,7 +1,7 @@
 import { RiInboxUnarchiveFill } from "react-icons/ri";
 import { FaEdit, FaTrash, FaTrashRestore } from "react-icons/fa";
 import { NotesIconBox } from "@styles/styles";
-import { Note } from "@types/note";
+
 import { Dispatch } from "@reduxjs/toolkit";
 import { toggleCreateNoteModal } from "@store/modal/modal.slice";
 import {
@@ -12,6 +12,7 @@ import {
   setTrashNotes,
   unArchiveNote,
 } from "@store/note-list/noteList.slice";
+import { Note } from "@/types/note";
 
 interface GetRelevantBtns {
   type: string;

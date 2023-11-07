@@ -6,7 +6,7 @@ import { getStandardName } from "@utils/getStandardName";
 import { addTags, deleteTags } from "@store/tags/tags.slice";
 import { removeTags } from "@store/note-list/noteList.slice";
 import { toggleTagsModal } from "@store/modal/modal.slice";
-import { Tag } from "@types/tag";
+import { Tag } from "@/types/tag";
 import { DeleteBox, FixedContainer } from "../Modal.styes";
 import { Box, StyledInput, TagsBox } from "./TagsModal.styles";
 
