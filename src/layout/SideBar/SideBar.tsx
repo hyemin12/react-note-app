@@ -61,7 +61,7 @@ const SideBar = () => {
             <span>
               <MdEdit />
             </span>
-            <span>{getStandardName("Edit Notes")}</span>
+            <span>{getStandardName("Edit Tags")}</span>
           </li>
 
           {/* other Items */}
