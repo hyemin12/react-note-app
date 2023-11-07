@@ -68,7 +68,7 @@ const SideBar = () => {
           {items.map(({ icon, title, id }) => (
             <SideBarItem
               key={id}
-              path={`/${title.toLocaleLowerCase()}`}
+              path={`/${title.toLowerCase()}`}
               onClick={() => dispatch(toggleMenu(false))}
               state={title}
               icon={icon}

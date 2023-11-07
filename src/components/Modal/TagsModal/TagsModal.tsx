@@ -1,19 +1,22 @@
 import React, { useState } from "react";
 import { v4 } from "uuid";
-import { FaTimes } from "react-icons/fa";
+import { FaMinus, FaPlus, FaTimes } from "react-icons/fa";
 import { useAppDispatch, useAppSelector } from "@hooks/redux";
 import { getStandardName } from "@utils/getStandardName";
 import { addTags, deleteTags } from "@store/tags/tags.slice";
 import { removeTags } from "@store/note-list/noteList.slice";
 import { toggleTagsModal } from "@store/modal/modal.slice";
+import { Tag } from "@types/tag";
 import { DeleteBox, FixedContainer } from "../Modal.styes";
 import { Box, StyledInput, TagsBox } from "./TagsModal.styles";
 
 interface TagsModalProps {
   type: string;
+  addedTags?: Tag[];
+  tagsHandler?: (tag: string, type: string) => void;
 }
 
-const TagsModal = ({ type }: TagsModalProps) => {
+const TagsModal = ({ type, addedTags, tagsHandler }: TagsModalProps) => {
   const dispatch = useAppDispatch();
   const { tagsList } = useAppSelector((state) => state.tags);
   const [inputValue, setInputValue] = useState<string>("");
@@ -31,7 +34,7 @@ const TagsModal = ({ type }: TagsModalProps) => {
   const onAddTagSumbit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!inputValue) return;
-    dispatch(addTags({ tag: inputValue.toLocaleLowerCase(), id: v4() }));
+    dispatch(addTags({ tag: inputValue.toLowerCase(), id: v4() }));
     setInputValue("");
   };
   return (
@@ -56,10 +59,21 @@ const TagsModal = ({ type }: TagsModalProps) => {
           {tagsList.map(({ tag, id }) => (
             <li key={id}>
               <p className="editTags__tag">{getStandardName(tag)}</p>
-              <DeleteBox onClick={() => onDeleteTags(tag, id)}>
-                {" "}
-                <FaTimes />
-              </DeleteBox>
+              {type === "edit" ? (
+                <DeleteBox onClick={() => onDeleteTags(tag, id)}>
+                  <FaTimes />
+                </DeleteBox>
+              ) : (
+                <DeleteBox>
+                  {addedTags?.find((addedTag: Tag) =>
+                    addedTag.tag === tag.toLowerCase() ? (
+                      <FaMinus onClick={() => tagsHandler!(tag, "remove")} />
+                    ) : (
+                      <FaPlus onClick={() => tagsHandler!(tag, "add")} />
+                    )
+                  )}
+                </DeleteBox>
+              )}
             </li>
           ))}
         </TagsBox>

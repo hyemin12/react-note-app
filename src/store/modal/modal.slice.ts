@@ -19,6 +19,7 @@ export const modalSlice = createSlice({
   initialState,
   reducers: {
     toggleTagsModal: (state, { payload }) => {
+      console.log(payload);
       const { type, view } = payload;
       type === "add"
         ? (state.viewAddTagsModal = view)

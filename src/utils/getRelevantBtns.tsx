@@ -22,7 +22,7 @@ interface GetRelevantBtns {
 const getRelevantBtns = ({ type, note, dispatch }: GetRelevantBtns) => {
   const onToggleModal = () => {
     dispatch(toggleCreateNoteModal(true));
-    dispatch(setEditNote(true));
+    dispatch(setEditNote(note));
   };
   console.log(type, note, dispatch);
   if (type === "achive") {
