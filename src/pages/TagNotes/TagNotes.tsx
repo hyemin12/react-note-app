@@ -13,7 +13,6 @@ const TagNotes = () => {
   const notes: Note[] = mainNotes.filter((note) =>
     note.tags.find(({ tag }) => tag === name)
   );
-  console.log(mainNotes, name, notes);
 
   return (
     <Container>
