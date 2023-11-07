@@ -65,12 +65,12 @@ const TagsModal = ({ type, addedTags, tagsHandler }: TagsModalProps) => {
                 </DeleteBox>
               ) : (
                 <DeleteBox>
-                  {addedTags?.find((addedTag: Tag) =>
-                    addedTag.tag === tag.toLowerCase() ? (
-                      <FaMinus onClick={() => tagsHandler!(tag, "remove")} />
-                    ) : (
-                      <FaPlus onClick={() => tagsHandler!(tag, "add")} />
-                    )
+                  {addedTags?.find(
+                    (addedTag: Tag) => addedTag.tag === tag.toLowerCase()
+                  ) ? (
+                    <FaMinus onClick={() => tagsHandler!(tag, "remove")} />
+                  ) : (
+                    <FaPlus onClick={() => tagsHandler!(tag, "add")} />
                   )}
                 </DeleteBox>
               )}
