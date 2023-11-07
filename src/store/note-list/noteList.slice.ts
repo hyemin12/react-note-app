@@ -16,7 +16,14 @@ const initialState: NoteState = {
 export const noteSlice = createSlice({
   name: "note",
   initialState,
-  reducers: {},
+  reducers: {
+    removeTags: (state, { payload }) => {
+      state.mainNotes = state.mainNotes.map((note) => ({
+        ...note,
+        tags: note.tags.filter((tag) => tag !== payload),
+      }));
+    },
+  },
 });
-
+export const { removeTags } = noteSlice.actions;
 export default noteSlice.reducer;

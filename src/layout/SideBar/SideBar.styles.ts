@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.nav<{ openMenu: string }>`
+export const Container = styled.nav<{ $openMenu: string }>`
   @media screen and (max-width: 950px) {
     position: absolute;
     z-index: 2;
@@ -9,15 +9,15 @@ export const Container = styled.nav<{ openMenu: string }>`
     width: 100%;
     height: 100vh;
     transition: 200ms visibility ease-in-out, 250ms background-color ease-in-out;
-    visibility: ${({ openMenu }) =>
-      openMenu === "open" ? "normal" : "hidden"};
-    background-color: ${({ openMenu }) =>
-      openMenu === "open" ? "rgba(0, 0, 0, 0.8)" : "rgba(0, 0, 0, 0)"};
+    visibility: ${({ $openMenu }) =>
+      $openMenu === "open" ? "normal" : "hidden"};
+    background-color: ${({ $openMenu }) =>
+      $openMenu === "open" ? "rgba(0, 0, 0, 0.8)" : "rgba(0, 0, 0, 0)"};
     cursor: pointer;
   }
 `;
 
-export const MainBox = styled.div<{ openMenu: string }>`
+export const MainBox = styled.div<{ $openMenu: string }>`
   width: 250px;
   height: 100%;
   min-height: 100vh;
@@ -27,8 +27,8 @@ export const MainBox = styled.div<{ openMenu: string }>`
     transition: 350ms transform ease-in-out;
     position: absolute;
     z-index: 10;
-    transform: ${({ openMenu }) =>
-      openMenu === "open" ? "translateX(0%)" : "translateX(-100%)"};
+    transform: ${({ $openMenu }) =>
+      $openMenu === "open" ? "translateX(0%)" : "translateX(-100%)"};
   }
 `;
 

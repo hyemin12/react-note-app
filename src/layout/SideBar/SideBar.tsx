@@ -23,8 +23,8 @@ const SideBar = () => {
   if (pathname === "/404") return null;
 
   return (
-    <Container openMenu={isOpen ? "open" : ""}>
-      <MainBox openMenu={isOpen ? "open" : ""}>
+    <Container $openMenu={isOpen ? "open" : ""}>
+      <MainBox $openMenu={isOpen ? "open" : ""}>
         <StyledLogo>
           <h1>Keep</h1>
         </StyledLogo>

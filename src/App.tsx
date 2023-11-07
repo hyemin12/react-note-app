@@ -1,5 +1,4 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { NavBar, SideBar } from "./layout";
 import {
   AllNotes,
   ArchiveNotes,
@@ -7,23 +6,22 @@ import {
   TagNotes,
   TrashNotes,
 } from "./pages";
+import GenerLayout from "./layout/GeneralLayoyt";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <SideBar />
-        <div className="app__container">
-          <NavBar />
-          <Routes>
-            <Route path="/" element={<AllNotes />} />
+        <Routes>
+          <Route path="/" element={<GenerLayout />}>
+            <Route index element={<AllNotes />} />
             <Route path="/archive" element={<ArchiveNotes />} />
             <Route path="/trash" element={<TrashNotes />} />
             <Route path="/tage/:name" element={<TagNotes />} />
             <Route path="/404" element={<ErrorPage />} />
             <Route path="/*" element={<ErrorPage />} />
-          </Routes>
-        </div>
+          </Route>
+        </Routes>
       </BrowserRouter>
     </div>
   );
