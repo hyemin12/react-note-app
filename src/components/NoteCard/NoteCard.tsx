@@ -1,4 +1,4 @@
-import React from "react";
+import parse from "html-react-parser";
 import { BsFillPinFill } from "react-icons/bs";
 import { useAppDispatch } from "@hooks/redux";
 import getRelevantBtns from "@utils/getRelevantBtns";
@@ -19,8 +19,15 @@ interface NoteCardProps {
 }
 const NoteCard = ({ note, type }: NoteCardProps) => {
   const dispatch = useAppDispatch();
-  const { title, content, tags, color, priority, date, isPinned, isRead, id } =
-    note;
+  const { title, content, tags, color, priority, date, isPinned, id } = note;
+
+  const abbreviationBodyLanguage = () => {
+    if (content.includes("img")) {
+      return content;
+    } else {
+      return content.length > 75 ? content.slice(0, 75) + "..." : content;
+    }
+  };
 
   return (
     <Card style={{ backgroundColor: color }}>
@@ -41,7 +48,7 @@ const NoteCard = ({ note, type }: NoteCardProps) => {
           )}
         </div>
       </TopBox>
-      <ContentBox></ContentBox>
+      <ContentBox>{parse(abbreviationBodyLanguage())}</ContentBox>
 
       <TagsBox>
         {tags.map(({ tag, id }) => (
