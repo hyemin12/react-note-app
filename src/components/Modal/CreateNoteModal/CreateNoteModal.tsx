@@ -1,11 +1,13 @@
 import React, { useState } from "react";
+import { toast } from "react-toastify";
+import { v4 } from "uuid";
+import { FaPlus, FaSlack, FaTimes } from "react-icons/fa";
 import { useAppDispatch, useAppSelector } from "@hooks/redux";
-import { FaPlus, FaTimes } from "react-icons/fa";
 import {
   toggleCreateNoteModal,
   toggleTagsModal,
 } from "@store/modal/modal.slice";
-import { setEditNote } from "@store/note-list/noteList.slice";
+import { setEditNote, setMainNotes } from "@store/note-list/noteList.slice";
 import { TagsModal, TextEditor } from "@/components";
 import { ButtonFill, ButtonOutline } from "@styles/styles";
 import { DeleteBox, FixedContainer } from "../Modal.styes";
@@ -16,7 +18,8 @@ import {
   TopBox,
   Box,
 } from "./CreateNoteModal.styles";
-import { v4 } from "uuid";
+import dayjs from "dayjs";
+import { Note } from "@types/note";
 
 const CreateNoteModal = () => {
   const dispatch = useAppDispatch();
@@ -43,6 +46,42 @@ const CreateNoteModal = () => {
     }
   };
 
+  const createNoteHandler = () => {
+    if (!noteTitle) {
+      return toast.error("타이틀을 작성해주세요");
+    }
+    if (noteContent === `<p><br/></p>`)
+      return toast.error("내용을 작성해주세요");
+
+    const date = dayjs().format("DD/MM/YY h:mm A");
+
+    let note: Partial<Note> = {
+      title: noteTitle,
+      content: noteContent,
+      tags: addedTags,
+      color: noteColor,
+      priority,
+      editedTime: new Date().getTime(),
+    };
+
+    if (editNote) {
+      note = { ...editNote, ...note };
+    } else {
+      note = {
+        ...note,
+        date,
+        createdTime: new Date().getTime(),
+        editedTime: null,
+        isPinned: false,
+        isRead: false,
+        id: v4(),
+      };
+    }
+    dispatch(setMainNotes(note));
+    dispatch(toggleCreateNoteModal(false));
+    dispatch(setEditNote(null));
+  };
+
   return (
     <FixedContainer>
       {viewAddTagsModal && (
@@ -60,6 +99,7 @@ const CreateNoteModal = () => {
             onClick={onCloseModal}
           ></DeleteBox>
         </TopBox>
+
         <StyledInput
           type="text"
           value={noteTitle}
@@ -73,17 +113,6 @@ const CreateNoteModal = () => {
           noteContent={noteContent}
           setNoteContent={setNoteContent}
         />
-        <div className="createNote__create-btn">
-          <ButtonFill>
-            {editNote ? (
-              <span>저장하기</span>
-            ) : (
-              <>
-                <FaPlus /> <span>생성하기</span>
-              </>
-            )}
-          </ButtonFill>
-        </div>
 
         <AddedTagsBox>
           {addedTags.map(({ tag, id }) => (
@@ -134,6 +163,18 @@ const CreateNoteModal = () => {
             </select>
           </div>
         </OptionsBox>
+
+        <div className="createNote__create-btn">
+          <ButtonFill onClick={createNoteHandler}>
+            {editNote ? (
+              <span>저장하기</span>
+            ) : (
+              <>
+                <FaPlus /> <span>생성하기</span>
+              </>
+            )}
+          </ButtonFill>
+        </div>
       </Box>
     </FixedContainer>
   );
