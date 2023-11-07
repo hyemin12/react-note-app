@@ -2,6 +2,7 @@ import React from "react";
 import { BsFillPinFill } from "react-icons/bs";
 import { useAppDispatch } from "@hooks/redux";
 import getRelevantBtns from "@utils/getRelevantBtns";
+import { setPinnedNotes } from "@store/note-list/noteList.slice";
 import { Note } from "@types/note";
 import { NotesIconBox } from "@styles/styles";
 import {
@@ -31,7 +32,10 @@ const NoteCard = ({ note, type }: NoteCardProps) => {
           <span className="noteCard__priority">{priority}</span>
 
           {type !== "archive" && type !== "trash" && (
-            <NotesIconBox className="noteCard__pin">
+            <NotesIconBox
+              onClick={() => dispatch(setPinnedNotes(id))}
+              className="noteCard__pin"
+            >
               <BsFillPinFill style={{ color: isPinned ? "red" : "" }} />
             </NotesIconBox>
           )}

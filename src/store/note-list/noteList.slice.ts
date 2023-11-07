@@ -61,7 +61,7 @@ export const noteSlice = createSlice({
     },
     setPinnedNotes: (state, { payload }) => {
       state.mainNotes = state.mainNotes.map((note) =>
-        note.id !== payload.id ? { ...note, isPinned: !note.isPinned } : note
+        note.id === payload ? { ...note, isPinned: !note.isPinned } : note
       );
     },
     setEditNote: (state, { payload }) => {
