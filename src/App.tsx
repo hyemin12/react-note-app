@@ -20,8 +20,8 @@ function App() {
             <Route path="/trash" element={<TrashNotes />} />
             <Route path="/tag/:name" element={<TagNotes />} />
             <Route path="/404" element={<ErrorPage />} />
-            <Route path="/*" element={<ErrorPage />} />
           </Route>
+          <Route path="/*" element={<ErrorPage />} />
         </Routes>
       </BrowserRouter>
     </div>

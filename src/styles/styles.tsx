@@ -20,20 +20,20 @@ export const EmptyMsgBox = styled.div`
 `;
 
 export const ButtonFill = styled.button`
-  padding: 6px 20px;
+  padding: 12px 24px;
   border-radius: 5px;
   cursor: pointer;
   box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.1);
   transition: 250ms background-color ease-in-out;
-  span {
-    font-weight: 500;
-    font-size: clamp(15px, 3.5vw, 1.2rem);
-  }
-  background-color: var(--primary-color);
-  border: 1px solid var(--primary-color);
+
+  font-weight: 500;
+  font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+
+  background-color: var(--yellow-color);
+  border: none;
 
   &:hover {
-    background-color: rgb(253, 239, 195, 0.5);
+    background-color: #fde59c;
   }
 
   @media screen and (max-width: 600px) {

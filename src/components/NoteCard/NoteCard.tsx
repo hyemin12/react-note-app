@@ -34,7 +34,7 @@ const NoteCard = ({ note, type }: NoteCardProps) => {
   return (
     <>
       {isRead && <ReadNoteModal type={type} note={note} />}
-      <Card style={{ backgroundColor: color }}>
+      <Card style={{ backgroundColor: `var(--${color}--color)` }}>
         <TopBox>
           <div className="noteCard__title">
             {title.length > 10 ? title.slice(0, 10) + "..." : title}

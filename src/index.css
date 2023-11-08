@@ -1,12 +1,26 @@
+@font-face {
+  font-family: "pretendard";
+  src: url("@/assets/font/Pretendard-Medium.woff");
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
+  font-family: "pretendard", sans-serif;
 }
 
 :root {
   --primary-color: rgb(253, 239, 195);
+  --red-color: #ffafa3;
+  --blue-color: #80caff;
+  --orange-color: #ffc470;
+  --pink-color: #ffade7;
+  --light-gray-color: #e6e6e6;
+  --yellow-color: #ffd966;
+  --violet-color: #d9b8ff;
+  --green-color: #85e0a3;
 }
 
 a {

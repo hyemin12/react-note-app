@@ -4,12 +4,13 @@ export const Container = styled.div`
   width: 100%;
   min-height: 100vh;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
+  gap: 40px;
   padding: 0px 30px;
   background-color: white;
   .error__img {
-    max-width: 500px;
+    max-width: 600px;
     img {
       width: 100%;
     }
@@ -21,15 +22,15 @@ export const Container = styled.div`
     }
     div {
       margin-bottom: 30px;
-      font-size: clamp(1.2rem, 2vw, 1.5rem);
-      font-weight: 600;
+      font-size: clamp(1rem, 2vw, 1.1rem);
     }
   }
   @media only screen and (max-width: 950px) {
     flex-direction: column;
     justify-content: center;
+    text-align: center;
     .error__img {
-      margin-bottom: 100px;
+      margin-bottom: 60px;
     }
   }
 `;

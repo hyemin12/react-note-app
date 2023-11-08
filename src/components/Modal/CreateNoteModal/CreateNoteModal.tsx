@@ -20,6 +20,8 @@ import {
   Box,
 } from "./CreateNoteModal.styles";
 import { Note } from "@/types/note";
+import ColorOptionBox from "./ColorOptionBox";
+import PriorityOptionBox from "./PriorityOptionBox";
 
 const CreateNoteModal = () => {
   const dispatch = useAppDispatch();
@@ -136,32 +138,9 @@ const CreateNoteModal = () => {
           >
             Add Tag
           </ButtonOutline>
-          <div>
-            <label htmlFor="color">배경색 : </label>
-            <select
-              value={noteColor}
-              id="color"
-              onChange={(e) => setNoteColor(e.target.value)}
-            >
-              <option value="">White</option>
-              <option value="#ffcccc">Red</option>
-              <option value="#ccffcc">Green</option>
-              <option value="#cce0ff">Blue</option>
-              <option value="#ffffcc">Yellow</option>
-            </select>
-          </div>
+          <ColorOptionBox noteColor={noteColor} setNoteColor={setNoteColor} />
 
-          <div>
-            <label htmlFor="priority">우선순위 : </label>
-            <select
-              value={priority}
-              id="priority"
-              onChange={(e) => setPriority(e.target.value)}
-            >
-              <option value="low">Low</option>
-              <option value="high">High</option>
-            </select>
-          </div>
+          <PriorityOptionBox priority={priority} setPriority={setPriority} />
         </OptionsBox>
 
         <div className="createNote__create-btn">
