@@ -11,7 +11,7 @@ const NavBar = () => {
   const { pathname, state } = useLocation();
   const dispatch = useAppDispatch();
   if (pathname === "/404") return null;
-
+  console.log(state);
   const toggleMenuHandler = () => {
     dispatch(toggleMenu(true));
   };
@@ -25,7 +25,9 @@ const NavBar = () => {
       </div>
 
       <Container>
-        <div className="nav__page__title">{getStandardName(state)}</div>
+        <div className="nav__page__title">
+          {getStandardName(state ? state : "All notes")}
+        </div>
         {state !== "Trash" && state !== "Archive" && (
           <ButtonFill
             onClick={toggleCreateNoteModalHandler}

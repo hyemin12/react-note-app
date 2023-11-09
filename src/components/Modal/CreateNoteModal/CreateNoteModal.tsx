@@ -55,7 +55,7 @@ const CreateNoteModal = () => {
     if (noteContent === `<p><br/></p>`)
       return toast.error("내용을 작성해주세요");
 
-    const date = dayjs().format("DD/MM/YY h:mm A");
+    const date = dayjs().format("YY-MM-DD h:mm A");
 
     let note: Partial<Note> = {
       title: noteTitle,
