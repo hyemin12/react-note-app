@@ -87,11 +87,7 @@ const CreateNoteModal = () => {
   return (
     <FixedContainer>
       {viewAddTagsModal && (
-        <TagsModal
-          type="edit"
-          addedTags={addedTags}
-          tagsHandler={tagsHandler}
-        />
+        <TagsModal type="add" addedTags={addedTags} tagsHandler={tagsHandler} />
       )}
       <Box $color={noteColor}>
         <TopBox>
