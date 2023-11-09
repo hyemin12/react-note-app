@@ -46,15 +46,14 @@ export const ButtonOutline = styled.button`
   border-radius: 5px;
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.05);
-  box-shadow: 0px 2px 1px 1px rgba(0, 0, 0, 0.2);
+  // box-shadow: 0px 2px 1px 1px rgba(0, 0, 0, 0.2);
   transition: 250ms background-color ease-in-out;
   white-space: nowrap;
 
-  span {
-    font-weight: 500;
-    font-size: clamp(15px, 3.5vw, 1.2rem);
-    margin-left: 5px;
-  }
+  font-weight: 500;
+  font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+  margin-left: 5px;
+
   border: none;
 
   &:hover {

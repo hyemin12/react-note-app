@@ -10,7 +10,7 @@ const PriorityOptionBox = ({ priority, setPriority }: PriorityOptionBox) => {
   };
   return (
     <div>
-      <label htmlFor="priority">우선순위 : </label>
+      <label htmlFor="priority">우선순위</label>
       <select value={priority} id="priority" onChange={onChangePriority}>
         <option value="low">Low</option>
         <option value="high">High</option>

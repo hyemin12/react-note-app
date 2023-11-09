@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Box = styled.div<{ $color: string }>`
   width: clamp(250px, 95%, 750px);
-  background-color: ${({ $color }) => `var(--${$color}-color)`};
+  background-color: #f6f6f6;
   color: black;
   border-radius: 10px;
   padding: 20px 18px 25px;
@@ -20,11 +20,6 @@ export const TopBox = styled.div`
   .createNote__title {
     font-weight: 600;
     font-size: clamp(1.4rem, 3vw, 1.6rem);
-  }
-  .createNote__close-btn {
-    svg {
-      font-size: 1.6rem;
-    }
   }
 `;
 
@@ -44,12 +39,14 @@ export const StyledInput = styled.input`
 export const AddedTagsBox = styled.div`
   margin: 12px 0 30px;
   display: flex;
-
+  div.add_tags {
+    cursor: pointer;
+  }
   div {
     display: flex;
     align-items: center;
     border: none;
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: #c4c4c4;
     color: rgba(0, 0, 0, 0.7);
     padding: 4px 10px;
     border-radius: 10px;
@@ -69,23 +66,31 @@ export const AddedTagsBox = styled.div`
     }
   }
 `;
-export const OptionsBox = styled.div<{ $color: string }>`
+export const OptionsBox = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
+  gap: 25px;
   margin: 15px 0 25px;
 
   select {
     font-size: clamp(14px, 1.5vw, 1rem);
-    padding: 5px 10px;
+    padding: 2px 10px;
+    margin-left: 8px;
     user-select: none;
     outline: none;
-    border: none;
-    box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.2);
     border-radius: 3px;
-    background-color: ${({ $color }) => `var(--${$color}-color)`};
+    background-color: #fff;
   }
   label {
     font-size: clamp(14px, 1.5vw, 1rem);
   }
+`;
+export const ButtonGroup = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  width: 100%;
 `;

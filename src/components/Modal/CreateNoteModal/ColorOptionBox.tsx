@@ -11,7 +11,7 @@ const ColorOptionBox = ({ $noteColor, setNoteColor }: ColorOptionBoxProps) => {
   };
   return (
     <div>
-      <label htmlFor="color">배경색 : </label>
+      <label htmlFor="color">배경색</label>
       <select value={$noteColor} id="color" onChange={onChangeColor}>
         <option value="white">White</option>
         <option value="red">Red</option>

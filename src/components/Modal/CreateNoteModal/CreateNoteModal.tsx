@@ -2,7 +2,7 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import { v4 } from "uuid";
 import dayjs from "dayjs";
-import { FaPlus, FaTimes } from "react-icons/fa";
+import { BiX, BiPlus } from "react-icons/Bi";
 import { useAppDispatch, useAppSelector } from "@hooks/redux";
 import {
   toggleCreateNoteModal,
@@ -10,18 +10,18 @@ import {
 } from "@store/modal/modal.slice";
 import { setEditNote, setMainNotes } from "@store/note-list/noteList.slice";
 import { TagsModal, TextEditor } from "@/components";
-import { ButtonFill, ButtonOutline } from "@styles/styles";
-import { DeleteBox, FixedContainer } from "../Modal.styes";
+import { Note } from "@/types/note";
+import ColorOptionBox from "./ColorOptionBox";
+import PriorityOptionBox from "./PriorityOptionBox";
+import { FixedContainer } from "../Modal.styes";
 import {
   AddedTagsBox,
   OptionsBox,
   StyledInput,
-  TopBox,
   Box,
+  ButtonGroup,
 } from "./CreateNoteModal.styles";
-import { Note } from "@/types/note";
-import ColorOptionBox from "./ColorOptionBox";
-import PriorityOptionBox from "./PriorityOptionBox";
+import { ButtonFill, ButtonOutline } from "@styles/styles";
 
 const CreateNoteModal = () => {
   const dispatch = useAppDispatch();
@@ -90,13 +90,6 @@ const CreateNoteModal = () => {
         <TagsModal type="add" addedTags={addedTags} tagsHandler={tagsHandler} />
       )}
       <Box $color={noteColor}>
-        <TopBox>
-          <DeleteBox
-            className="createNote__close-btn"
-            onClick={onCloseModal}
-          ></DeleteBox>
-        </TopBox>
-
         <StyledInput
           type="text"
           value={noteTitle}
@@ -112,6 +105,15 @@ const CreateNoteModal = () => {
         />
 
         <AddedTagsBox>
+          <div
+            className="add_tags"
+            onClick={() =>
+              dispatch(toggleTagsModal({ type: "add", view: true }))
+            }
+          >
+            태그 추가
+            <BiPlus />
+          </div>
           {addedTags.map(({ tag, id }) => (
             <div key={id}>
               <span className="createNote__tag">{tag}</span>
@@ -119,36 +121,32 @@ const CreateNoteModal = () => {
                 className="createNote__tag-remove"
                 onClick={() => tagsHandler(tag, "remove")}
               >
-                <FaTimes />
+                <BiX />
               </span>
             </div>
           ))}
         </AddedTagsBox>
 
-        <OptionsBox $color={noteColor}>
-          <ButtonOutline
-            onClick={() =>
-              dispatch(toggleTagsModal({ type: "add", view: true }))
-            }
-          >
-            Add Tag
-          </ButtonOutline>
+        <OptionsBox>
           <ColorOptionBox $noteColor={noteColor} setNoteColor={setNoteColor} />
 
           <PriorityOptionBox priority={priority} setPriority={setPriority} />
         </OptionsBox>
 
-        <div className="createNote__create-btn">
-          <ButtonFill onClick={createNoteHandler}>
-            {editNote ? (
-              <span>저장하기</span>
-            ) : (
-              <>
-                <FaPlus /> <span>생성하기</span>
-              </>
-            )}
-          </ButtonFill>
-        </div>
+        <ButtonGroup>
+          <ButtonOutline onClick={onCloseModal}>닫기</ButtonOutline>
+          <div className="createNote__create-btn">
+            <ButtonFill onClick={createNoteHandler}>
+              {editNote ? (
+                <span>저장하기</span>
+              ) : (
+                <>
+                  <BiPlus /> <span>생성하기</span>
+                </>
+              )}
+            </ButtonFill>
+          </div>
+        </ButtonGroup>
       </Box>
     </FixedContainer>
   );
