@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import { createSlice } from "@reduxjs/toolkit";
 import { Note } from "@/types/note";
 import { notes } from "@/notesData";
@@ -26,7 +27,8 @@ export const noteSlice = createSlice({
   reducers: {
     setMainNotes: (state, { payload }) => {
       // 노트 수정
-      if (state.mainNotes.find(({ id }) => id === payload.id)) {
+      const inCludedNote = state.mainNotes.find(({ id }) => id === payload.id);
+      if (inCludedNote) {
         state.mainNotes = state.mainNotes.map((note) =>
           note.id === payload.id ? payload : note
         );
@@ -34,6 +36,7 @@ export const noteSlice = createSlice({
         // 노트 추가
         state.mainNotes.push(payload);
       }
+      toast.info(`노트가 ${inCludedNote ? "수정" : "추가"}되었습니다.`);
     },
     setTrashNotes: (state, { payload }) => {
       state.mainNotes = state.mainNotes.filter(({ id }) => id !== payload.id);
@@ -41,28 +44,34 @@ export const noteSlice = createSlice({
         ({ id }) => id !== payload.id
       );
       state.trashNotes.push({ ...payload, isPinned: false });
+      toast.info(`노트가 휴지통으로 이동했습니다.`);
     },
     setArchiveNotes: (state, { payload }) => {
       state.mainNotes = state.mainNotes.filter(({ id }) => id !== payload.id);
       state.archiveNotes.push({ ...payload, isPinned: false });
+      toast.info("노트가 보관함으로 이동했습니다.");
     },
     unArchiveNote: (state, { payload }) => {
       state.archiveNotes = state.archiveNotes.filter(
         ({ id }) => id !== payload.id
       );
       state.mainNotes.push(payload);
+      toast.info("노트 1개가 보관이 취소되었습니다.");
     },
     restoreNote: (state, { payload }) => {
       state.trashNotes = state.trashNotes.filter(({ id }) => id !== payload.id);
       state.mainNotes.push(payload);
+      toast.info("노트 삭제가 취소되었습니다.");
     },
     deleteNote: (state, { payload }) => {
       state.trashNotes = state.trashNotes.filter(({ id }) => id !== payload.id);
+      toast.info("노트가 완전히 삭제되었습니다.");
     },
     setPinnedNotes: (state, { payload }) => {
       state.mainNotes = state.mainNotes.map((note) =>
         note.id === payload ? { ...note, isPinned: !note.isPinned } : note
       );
+      toast.info("노트가 고정되었습니다.");
     },
     setEditNote: (state, { payload }) => {
       state.editNote = payload;

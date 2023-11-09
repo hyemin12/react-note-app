@@ -6,7 +6,7 @@ import {
   TagNotes,
   TrashNotes,
 } from "./pages";
-import GenerLayout from "./layout/GeneralLayoyt";
+import GenerLayout from "./layout/GeneralLayout";
 import "./App.css";
 
 function App() {

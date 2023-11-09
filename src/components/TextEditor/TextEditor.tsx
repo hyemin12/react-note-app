@@ -8,10 +8,8 @@ const formats = [
   "underline",
   "strike",
   "list",
-
   "color",
   "background",
-
   "image",
   "blockquote",
   "code-block",

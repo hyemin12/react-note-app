@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-export const Box = styled.div`
+export const Box = styled.div<{ $color: string }>`
   width: clamp(250px, 95%, 750px);
-  background-color: white;
+  background-color: ${({ $color }) => `var(--${$color}-color)`};
   color: black;
   border-radius: 10px;
   padding: 20px 18px 25px;
@@ -34,6 +34,7 @@ export const StyledInput = styled.input`
   user-select: none;
   outline: none;
   border: 1px solid rgba(0, 0, 0, 0.2);
+  background-color: transparent;
   text-indent: 15px;
   margin: 20px 0 10px;
   font-size: clamp(1rem, 2vw, 1.1rem);
@@ -68,7 +69,7 @@ export const AddedTagsBox = styled.div`
     }
   }
 `;
-export const OptionsBox = styled.div`
+export const OptionsBox = styled.div<{ $color: string }>`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -82,6 +83,7 @@ export const OptionsBox = styled.div`
     border: none;
     box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.5);
     border-radius: 3px;
+    background-color: ${({ $color }) => `var(--${$color}-color)`};
   }
   label {
     font-size: clamp(14px, 1.5vw, 1rem);

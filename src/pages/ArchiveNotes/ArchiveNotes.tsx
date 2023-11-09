@@ -7,7 +7,7 @@ const ArchiveNotes = () => {
   return (
     <Container>
       {archiveNotes.length === 0 ? (
-        <EmptyMsgBox>노트가 없습니다.</EmptyMsgBox>
+        <EmptyMsgBox>노트가 없습니다. </EmptyMsgBox>
       ) : (
         <MainWrapper notes={archiveNotes} type="archive" />
       )}

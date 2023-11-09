@@ -1,11 +1,16 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: clamp(250px, 90%, 270px);
+  width: clamp(120px, 90%, 140px);
   background-color: white;
   color: black;
   border-radius: 10px;
-  padding: 20px 20px 25px 30px;
+  padding: 20px 25px;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  box-shadow: 0px 0px 3px 1px rgb(0, 0, 0, 0.2);
+
   .filters__close {
     width: 100%;
     display: flex;
@@ -41,10 +46,13 @@ export const TopBox = styled.div`
 
 export const Box = styled.div`
   margin-top: 20px;
+  &:first-child {
+    margin-top: 0;
+  }
   .filters__subtitle {
     font-size: clamp(14px, 1.4vw, 15px);
     font-weight: 600;
-    margin-bottom: 10px;
+    margin-bottom: 7px;
     color: rgba(0, 0, 0, 0.6);
   }
 

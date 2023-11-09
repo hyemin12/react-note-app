@@ -6,6 +6,7 @@ export const TopBox = styled.div`
 
   .notes__filter-btn {
     justify-content: flex-end;
+    position: relative;
   }
 
   @media screen and (max-width: 650px) {

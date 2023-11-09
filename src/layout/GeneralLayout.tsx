@@ -13,8 +13,8 @@ const GenerLayout = () => {
   return (
     <>
       <ToastContainer
-        position="bottom-right"
-        theme="light"
+        position="bottom-left"
+        theme="colored"
         pauseOnHover
         autoClose={1500}
       />

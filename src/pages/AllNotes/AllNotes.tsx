@@ -32,19 +32,11 @@ const AllNotes = () => {
   if (mainNotes.length < 1)
     return (
       <Container>
-        {" "}
         <EmptyMsgBox>노트가 없습니다</EmptyMsgBox>
       </Container>
     );
   return (
     <Container>
-      {viewFilterModal && (
-        <FilterModal
-          filter={filter}
-          filterHandler={onfilterNotes}
-          filterClearHandler={onClearfilterNotes}
-        />
-      )}
       <TopBox>
         <InputBox>
           <input
@@ -58,6 +50,13 @@ const AllNotes = () => {
           <ButtonOutline onClick={onToggleFilterModal} className="nav__btn">
             정렬
           </ButtonOutline>
+          {viewFilterModal && (
+            <FilterModal
+              filter={filter}
+              filterHandler={onfilterNotes}
+              filterClearHandler={onClearfilterNotes}
+            />
+          )}
         </div>
       </TopBox>
       {/* note list */}

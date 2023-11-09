@@ -93,7 +93,7 @@ const CreateNoteModal = () => {
           tagsHandler={tagsHandler}
         />
       )}
-      <Box style={{ backgroundColor: `var(--${noteColor}-color)` }}>
+      <Box $color={noteColor}>
         <TopBox>
           <DeleteBox
             className="createNote__close-btn"
@@ -129,7 +129,7 @@ const CreateNoteModal = () => {
           ))}
         </AddedTagsBox>
 
-        <OptionsBox>
+        <OptionsBox $color={noteColor}>
           <ButtonOutline
             onClick={() =>
               dispatch(toggleTagsModal({ type: "add", view: true }))
@@ -137,7 +137,7 @@ const CreateNoteModal = () => {
           >
             Add Tag
           </ButtonOutline>
-          <ColorOptionBox noteColor={noteColor} setNoteColor={setNoteColor} />
+          <ColorOptionBox $noteColor={noteColor} setNoteColor={setNoteColor} />
 
           <PriorityOptionBox priority={priority} setPriority={setPriority} />
         </OptionsBox>
