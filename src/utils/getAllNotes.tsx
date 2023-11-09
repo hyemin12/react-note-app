@@ -37,7 +37,7 @@ const getAllNotes = (mainNotes: Note[], filter: string) => {
       {pinned.length > 0 && (
         <>
           <div className="allNotes__notes-type">
-            Pinned Notes <span>({pinned.length})</span>
+            고정한 노트 <span>({pinned.length})</span>
           </div>
           <NotesContainer>
             {filterdNotes(pinned, filter).map((note) => (
@@ -49,7 +49,7 @@ const getAllNotes = (mainNotes: Note[], filter: string) => {
       {normal.length > 0 && (
         <>
           <div className="allNotes__notes-type">
-            All Notes <span>({normal.length})</span>
+            모든 노트 <span>({normal.length})</span>
           </div>
           <NotesContainer>
             {filterdNotes(normal, filter).map((note) => (

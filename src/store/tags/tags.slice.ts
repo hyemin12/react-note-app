@@ -8,9 +8,9 @@ interface TagState {
 }
 const initialState: TagState = {
   tagsList: [
-    { tag: "learnings", id: v4() },
-    { tag: "works", id: v4() },
-    { tag: "quotes", id: v4() },
+    { tag: "공부", id: v4() },
+    { tag: "포트폴리오", id: v4() },
+    { tag: "기타", id: v4() },
   ],
 };
 export const tagSlice = createSlice({

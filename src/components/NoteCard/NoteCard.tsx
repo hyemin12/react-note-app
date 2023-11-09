@@ -1,11 +1,8 @@
 import parse from "html-react-parser";
-import { BsFillPinFill } from "react-icons/bs";
 import { useAppDispatch } from "@hooks/redux";
-import getRelevantBtns from "@utils/getRelevantBtns";
-import { readNote, setPinnedNotes } from "@store/note-list/noteList.slice";
+import { readNote } from "@store/note-list/noteList.slice";
 import { ReadNoteModal } from "..";
 import { Note } from "@/types/note";
-import { NotesIconBox } from "@styles/styles";
 import {
   Card,
   ContentBox,
@@ -13,6 +10,7 @@ import {
   TagsBox,
   TopBox,
 } from "./NoteCard.styles";
+import { ArchiveButton, EditButton, TrashButton, PinButton } from "../button";
 
 interface NoteCardProps {
   note: Note;
@@ -42,14 +40,7 @@ const NoteCard = ({ note, type }: NoteCardProps) => {
           <div className="noteCard__top-options">
             <span className="noteCard__priority">{priority}</span>
 
-            {type !== "archive" && type !== "trash" && (
-              <NotesIconBox
-                onClick={() => dispatch(setPinnedNotes(id))}
-                className="noteCard__pin"
-              >
-                <BsFillPinFill style={{ color: isPinned ? "red" : "" }} />
-              </NotesIconBox>
-            )}
+            <PinButton type={type} isPinned={isPinned} id={id} />
           </div>
         </TopBox>
         <ContentBox onClick={() => dispatch(readNote({ type, id }))}>
@@ -64,7 +55,9 @@ const NoteCard = ({ note, type }: NoteCardProps) => {
 
         <FooterBox>
           <div className="noteCard__date">{date}</div>
-          <div>{getRelevantBtns({ type, note, dispatch })}</div>
+          <EditButton type={type} note={note} />
+          <ArchiveButton type={type} note={note} />
+          <TrashButton type={type} note={note} />
         </FooterBox>
       </Card>
     </>
