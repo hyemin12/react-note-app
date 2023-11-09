@@ -25,9 +25,9 @@ const NavBar = () => {
       </div>
 
       <Container>
-        <div className="nav__page__title">
+        <h2 className="nav__page__title">
           {getStandardName(state ? state : "All notes")}
-        </div>
+        </h2>
         {state !== "Trash" && state !== "Archive" && (
           <ButtonFill
             onClick={toggleCreateNoteModalHandler}
