@@ -93,9 +93,8 @@ const CreateNoteModal = () => {
           tagsHandler={tagsHandler}
         />
       )}
-      <Box>
+      <Box style={{ backgroundColor: `var(--${noteColor}-color)` }}>
         <TopBox>
-          <h2 className="createNote_title">노트 생성하기</h2>
           <DeleteBox
             className="createNote__close-btn"
             onClick={onCloseModal}

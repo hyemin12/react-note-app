@@ -9,7 +9,7 @@ interface TagState {
 const initialState: TagState = {
   tagsList: [
     { tag: "공부", id: v4() },
-    { tag: "포트폴리오", id: v4() },
+    { tag: "작업물", id: v4() },
     { tag: "기타", id: v4() },
   ],
 };

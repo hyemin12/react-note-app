@@ -4,7 +4,7 @@ export const notes = [
   {
     title: "노트 1",
     content: "노트 1 콘텐트",
-    tags: [{ tag: "learnings", id: v4() }],
+    tags: [{ tag: "교육", id: v4() }],
     color: "yellow",
     priority: "high",
     isPinned: false,
@@ -15,9 +15,9 @@ export const notes = [
     id: v4(),
   },
   {
-    title: "노트 2",
-    content: "노트 2 콘텐트",
-    tags: [{ tag: "quotes", id: v4() }],
+    title: "리팩토링 하기",
+    content: "근데 이게 맞는건가?",
+    tags: [{ tag: "작업물", id: v4() }],
     color: "violet",
     priority: "high",
     isPinned: false,
