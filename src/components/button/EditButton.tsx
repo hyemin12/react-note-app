@@ -2,10 +2,15 @@ import { BiEdit } from "react-icons/Bi";
 import { useAppDispatch } from "@hooks/redux";
 import { toggleCreateNoteModal } from "@store/modal/modal.slice";
 import { setEditNote } from "@store/note-list/noteList.slice";
-import { ButtonProps } from "@/types/buttons";
+import { Note } from "@/types/note";
 import { NotesIconBox } from "@styles/styles";
 
-const EditButton = ({ type, note }: ButtonProps) => {
+interface EditButtonProps {
+  note: Note;
+  type: string;
+}
+
+const EditButton = ({ type, note }: EditButtonProps) => {
   const dispatch = useAppDispatch();
   const onToggleModal = () => {
     dispatch(toggleCreateNoteModal(true));

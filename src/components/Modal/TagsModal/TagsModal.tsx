@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { v4 } from "uuid";
-import { FaMinus, FaPlus, FaTimes } from "react-icons/fa";
+import { BiX, BiPlus, BiMinus } from "react-icons/Bi";
 import { useAppDispatch, useAppSelector } from "@hooks/redux";
 import { getStandardName } from "@utils/getStandardName";
 import { addTags, deleteTags } from "@store/tags/tags.slice";
@@ -41,9 +41,11 @@ const TagsModal = ({ type, addedTags, tagsHandler }: TagsModalProps) => {
     <FixedContainer>
       <Box>
         <div className="editTags__header">
-          <h4 className="editTags__title">{type === "add" ? "ADD" : "Edit"}</h4>
+          <h4 className="editTags__title">
+            {type === "add" ? "태그 추가" : "태그 수정"}
+          </h4>
           <DeleteBox className="__close" onClick={onToggleTagsModal}>
-            <FaTimes />
+            <BiX />
           </DeleteBox>
         </div>
 
@@ -61,16 +63,16 @@ const TagsModal = ({ type, addedTags, tagsHandler }: TagsModalProps) => {
               <p className="editTags__tag">{getStandardName(tag)}</p>
               {type === "edit" ? (
                 <DeleteBox onClick={() => onDeleteTags(tag, id)}>
-                  <FaTimes />
+                  <BiX />
                 </DeleteBox>
               ) : (
                 <DeleteBox>
                   {addedTags?.find(
                     (addedTag: Tag) => addedTag.tag === tag.toLowerCase()
                   ) ? (
-                    <FaMinus onClick={() => tagsHandler!(tag, "remove")} />
+                    <BiMinus onClick={() => tagsHandler!(tag, "remove")} />
                   ) : (
-                    <FaPlus onClick={() => tagsHandler!(tag, "add")} />
+                    <BiPlus onClick={() => tagsHandler!(tag, "add")} />
                   )}
                 </DeleteBox>
               )}

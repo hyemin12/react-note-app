@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import ErrorImage from "@/assets/img/HTML-404-Page.png";
 import { Container } from "./ErrorPage.styles";
-import { ButtonFill } from "@/styles/styles";
+import { ButtonFill } from "@styles/styles";
 
 const ErrorPage = () => {
   const navigate = useNavigate();

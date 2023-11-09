@@ -3,7 +3,7 @@ import { FiMenu } from "react-icons/fi";
 import { useAppDispatch } from "@hooks/redux";
 import { toggleMenu } from "@store/menu/menu.slice";
 import { toggleCreateNoteModal } from "@store/modal/modal.slice";
-import { getStandardName } from "@/utils/getStandardName";
+import { getStandardName } from "@utils/getStandardName";
 import { ButtonFill } from "@styles/styles";
 import { Container, StyledNav } from "./NavBar.styles";
 

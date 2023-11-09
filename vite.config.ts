@@ -5,6 +5,7 @@ import path from "path";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  base: "/react-note-app",
   resolve: {
     alias: [
       { find: "@store", replacement: path.resolve(__dirname, "src/store") },
