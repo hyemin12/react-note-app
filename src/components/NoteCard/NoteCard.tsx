@@ -55,9 +55,11 @@ const NoteCard = ({ note, type }: NoteCardProps) => {
 
         <FooterBox>
           <div className="noteCard__date">{date}</div>
-          <EditButton type={type} note={note} />
-          <ArchiveButton type={type} note={note} />
-          <TrashButton type={type} note={note} />
+          <div>
+            <EditButton type={type} note={note} />
+            <ArchiveButton type={type} note={note} />
+            <TrashButton type={type} note={note} />
+          </div>
         </FooterBox>
       </Card>
     </>

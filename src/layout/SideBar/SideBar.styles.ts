@@ -49,15 +49,25 @@ export const StyledLogo = styled.div`
 
 export const ItemsBox = styled.ul`
   li {
-    width: 100%;
-    height: 60px;
-    list-style: none;
     display: flex;
     align-items: center;
+    width: 90%;
+    height: 60px;
+    border-radius: 0 25px 25px 0;
     font-weight: 500;
-
+    list-style: none;
     cursor: pointer;
+    transition: 250ms all ease-in-out, 250ms ease-in-out;
+    span {
+      transition: 250ms all ease-in-out, 250ms ease-in-out;
+    }
 
+    &:hover {
+      background-color: var(--orange-color);
+      span {
+        color: #fff !important;
+      }
+    }
     svg {
       margin-right: 20px;
     }
@@ -72,24 +82,14 @@ export const ItemsBox = styled.ul`
     }
 
     .active-item {
-      background-color: rgba(255, 255, 255, 0.18);
-    }
-
-    .inactive-item {
-      transition: 250ms background-color ease-in-out,
-        250ms border-left ease-in-out;
-      &:hover {
-        background-color: rgba(255, 255, 255, 0.15);
-      }
+      width: 100%;
+      background-color: var(--orange-color);
+      border-radius: 0 25px 25px 0;
+      color: #fff;
     }
   }
 
   .sidebar__edit-item {
     padding-left: 20px;
-    transition: 250ms background-color ease-in-out,
-      250ms border-left ease-in-out;
-    &:hover {
-      background-color: rgba(255, 255, 255, 0.15);
-    }
   }
 `;

@@ -16,9 +16,7 @@ const PinButton = ({ type, isPinned, id }: PinButton) => {
   if (type === "archive" || type === "trash") return null;
   return (
     <NotesIconBox className="noteCard__pin" onClick={onSetPinnedNote}>
-      {isPinned ? (
-        <BiSolidPin style={{ color: isPinned ? "#333" : "transparent" }} />
-      ) : null}
+      <BiSolidPin style={{ color: isPinned && "#333" }} />
     </NotesIconBox>
   );
 };
