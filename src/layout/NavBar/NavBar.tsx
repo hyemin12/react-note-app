@@ -31,7 +31,7 @@ const NavBar = () => {
             onClick={toggleCreateNoteModalHandler}
             className="nav__btn"
           >
-            +
+            + 메모 생성
           </ButtonFill>
         )}
       </Container>
